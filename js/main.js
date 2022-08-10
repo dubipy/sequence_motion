@@ -14,5 +14,6 @@ const main = document.querySelector('main')
 for(let i = 0; i < 500; i++) {
     const imgNode = document.createElement('img'); //img는 dom 이름이 된다
     //src는 Img를 불러오는 속성이므로 속성값을 추가한다
-    imgNode.setAttribute('src', ``) //src 값 지정, 모든 이미지를 하나씩 처리할 수 없으니 특정 값으로 가져온다
+    imgNode.setAttribute('src', `img/cat${i}.png`) //src 값 지정, 모든 이미지를 하나씩 처리할 수 없으니 특정 값으로 가져온다
+    main.append(imgNode); //속성까지 연결 완료된 Dom node를 실제 main에 append 메소드로 붙여넣으면 img DOM이 생성된다
 }
