@@ -17,6 +17,9 @@ main {
   opacity: 0;
   transition: 3s;
 }
+main.on {
+  opacity: 1;
+}
 main img {
   position: absolute;
   top: 0px;

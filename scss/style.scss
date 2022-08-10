@@ -17,6 +17,10 @@ body {
     opacity: 0;
     transition: 3s;
 
+    &.on {
+        opacity: 1;
+    }
+
     img {
         position: absolute;
         top: 0px;
