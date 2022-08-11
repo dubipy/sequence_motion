@@ -12,7 +12,7 @@
 const main = document.querySelector('main')
 
 //첫번째 방법
-for(let i = 0; i < 174; i++) {
+for(let i = 0; i < 200; i++) {
     const imgNode = document.createElement('img'); //img는 dom 이름이 된다
     //src는 Img를 불러오는 속성이므로 속성값을 추가한다
     imgNode.setAttribute('src', `img/cat${i}.jpg`) //src 값 지정, 모든 이미지를 하나씩 처리할 수 없으니 특정 값으로 가져온다
