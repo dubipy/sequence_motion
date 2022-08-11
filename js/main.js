@@ -10,6 +10,7 @@
 
 //536개의 이미지 동적으로 불러오기
 const main = document.querySelector('main')
+const loading = document.querySelector('aside');
 
 //첫번째 방법
 for(let i = 0; i < 200; i++) {
@@ -41,8 +42,12 @@ let total = 0;
 imgs.forEach(img => {
     img.addEventListener('load', () => { //DOM 순환 이미지까지 끝난 후에 함수 처리됨
         total++;
-        console.log(total);
+        loading.innerText = total +' / ' +len;
+        
+        if(total === len){
+            main.classList.add('on');
+            loading.remove(); // 로딩 완료 시 로딩 삭제 후 배경 등장
+        } 
     })
 
-    if(total === len) main.classList.add('on');
 })
