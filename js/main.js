@@ -1,13 +1,3 @@
-//동적으로 DOM 생성, 방법 2개
-//부모요소.innerHTML="넣을태그를 문자열로 변환하여"
-//기존 부모 안쪽의 자식 요소를 모두 제거하고 새로 생성한다
-
-//부모요소.append(DOM node)
-//인수로 생성할 태그의 문자열이 아닌 노드를 생성해서 삽입
-
-//새로운 DOM 노드 생성 방법
-//document.createElement('dom이름')
-
 //536개의 이미지 동적으로 불러오기
 const main = document.querySelector('main')
 const loading = document.querySelector('aside');
@@ -37,17 +27,35 @@ const imgs = document.querySelectorAll('img');
 const len = imgs.length;
 //카운트 증가 변수 생성
 let total = 0;
+//퍼센트 진행상황
+let percent = 0;
 
 //load event 연결
 imgs.forEach(img => {
     img.addEventListener('load', () => { //DOM 순환 이미지까지 끝난 후에 함수 처리됨
         total++;
-        loading.innerText = total +' / ' +len;
+        //반복되는 이미지 반복률 생성
+        percent = parseInt((total/len) * 100); //parseInt는 정수 변환
+        loading.innerText = `${total} / ${len} (${percent}%)`;
         
         if(total === len){
             main.classList.add('on');
-            loading.remove(); // 로딩 완료 시 로딩 삭제 후 배경 등장
+            loading.classList.add('off'); // 로딩 완료 시 로딩 서서히 사라지기
+
+            setTimeout(() => {
+                loading.remove();
+            },convertSpeed(loading))
         } 
     })
 
 })
+
+//특정 요소에 인수를 넣으면 인수를 받은 선택자가 aside scss의 transition 속성 값 2.5s라는 값이 나온다
+//만약 scss에서 다른 값을 입력해도 맞춰지게 된다
+
+function convertSpeed(el) {
+    let speed = getComputedStyle(el).transitionDuration;
+    speed = parseFloat(speed) * 1000; //실수변환  
+    return speed;
+}
+ 

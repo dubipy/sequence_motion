@@ -44,6 +44,10 @@ aside {
   letter-spacing: 2px;
   color: #fff;
   background: #111;
+  transition: 2.5s;
+}
+aside.off {
+  opacity: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

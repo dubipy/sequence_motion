@@ -46,4 +46,10 @@ body {
     letter-spacing: 2px;
     color: #fff;
     background: #111;
+    //퍼센트 동작 페이드 효과
+    transition: 2.5s;
+
+    &.off {
+        opacity: 0;
+    }
  }
